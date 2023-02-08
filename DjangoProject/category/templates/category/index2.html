@@ -1,0 +1,456 @@
+{% extends 'category/base.html' %}
+
+{% block title %}BEST SELLER RANKING{% endblock %}
+
+{% block content %}
+<!--<style>
+	.card {
+		padding: 10px;
+	}
+
+	.card h3 {
+		font-family: none;
+	}
+</style>
+
+<h2>Index Page</h2>
+
+<div style="display:flex;">
+	<div class="card" style="width:33%;">
+		<h3>Django</h3>
+		Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
+	</div>
+
+	<div class="card" style="width:33%;">
+		<h3>Django</h3>
+		Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
+	</div>
+
+	<div class="card" style="width:33%;">
+		<h3>Django</h3>
+		Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
+	</div>
+</div>-->
+<style>
+    .card {
+        border: 0;
+    }
+    .py-3 {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    .h-100 {
+        height: 100% !important;
+        width: 75vw !important;
+    }
+    .card {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 2px solid rgba(0,0,0,0.125);
+        border-radius: .625rem;
+    }
+    .row {
+        --bs-gutter-x: 2rem;
+        --bs-gutter-y: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-top: calc(var(--bs-gutter-y) * -1);
+        margin-right: calc(var(--bs-gutter-x) / -2);
+        margin-left: calc(var(--bs-gutter-x) / -2);
+    }
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: relative;
+    }
+    body {
+        margin: 0;
+        font-family: "Lato",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #4B5D68;
+        background-color: #fff;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    :root {
+        --bs-blue: #5F37EF;
+        --bs-indigo: #727cf5;
+        --bs-purple: #9C69E2;
+        --bs-pink: #F063B8;
+        --bs-red: #EF4358;
+        --bs-orange: #F56538;
+        --bs-yellow: #FFBA49;
+        --bs-green: #68C9BA;
+        --bs-teal: #299EF3;
+        --bs-cyan: #38B0F5;
+        --bs-white: #fff;
+        --bs-gray: #94A2B3;
+        --bs-gray-dark: #4B5D68;
+        --bs-primary: #5F37EF;
+        --bs-secondary: #299EF3;
+        --bs-success: #68C9BA;
+        --bs-info: #9C69E2;
+        --bs-warning: #FFBA49;
+        --bs-danger: #F063B8;
+        --bs-light: #f9fafd;
+        --bs-dark: #0b1727;
+        --bs-font-sans-serif: "Lato", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        --bs-font-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --bs-gradient: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+    }
+</style>
+<body>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>가정 살림 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{ones.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{ones.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{ones.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>건강 취미 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{twos.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{twos.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{twos.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>경제 경영 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{threes.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{threes.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{threes.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>국어 외국어 사전 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{fours.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{fours.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{fours.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>대학교재 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{fives.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{fives.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{fives.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>사회 정치 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{sixs.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{sixs.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{sixs.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>소설/시/희곡 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{sevens.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{sevens.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{sevens.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>수험서 자격증 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{eights.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{eights.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{eights.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>어린이 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{nines.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{nines.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{nines.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>에세이 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{tens.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{tens.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{tens.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>여행 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{elevens.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{elevens.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{elevens.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>역사 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{twelves.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{twelves.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{twelves.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>예술 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{thirteens.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{thirteens.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{thirteens.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>유아 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{fourteens.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{fourteens.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{fourteens.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>인문 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{fifteens.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{fifteens.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{fifteens.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>인물 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{sixteens.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{sixteens.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{sixteens.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>자기계발 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{seventeens.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{seventeens.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{seventeens.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>자연과학 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{eighteens.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{eighteens.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{eighteens.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>잡지 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{nineteens.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{nineteens.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{nineteens.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>종교 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{twentys.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{twentys.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{twentys.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>청소년 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{twentyones.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{twentyones.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{twentyones.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>IT 모바일 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{twentytwos.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{twentytwos.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{twentytwos.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>초등참고서 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{twentythrees.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{twentythrees.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{twentythrees.description}}</p>
+      </div>
+    </div>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+    <div class="card h-100 py-3">
+      <div class="card-body my-2">
+        <div class="d-flex align-items-center">
+          <div class="flex-1 align-items-center">
+            <h2>중고등참고서 1위</h2>
+            <h6 class="mb-0 fs--1 text-1000 fw-medium">{{twentyfours.name}}</h6>
+            <p class="fs--2 fw-normal text-info mb-0">{{twentyfours.author}}</p><br/>
+          </div>
+        </div>
+        <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{twentyfours.description}}</p>
+      </div>
+    </div>
+</div>
+
+
+{% endblock  %}

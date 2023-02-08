@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}category{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <style>
+
+        .topnav {
+            top: 0;
+            height: 60px;
+            width: 100%;
+            position: fixed;
+            z-index:1;
+            background-color:#02343F;
+            display: flex;
+            justify-content: center;
+        }
+
+        .topnav .center {
+            display:flex;
+            align-items:center;
+        }
+
+        .topnav h3 {
+            text-align: center;
+            margin: 0px 5px 0px 5px;
+        }
+
+        h3 {
+            color: #F0EDCC;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        .sidemenu {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index:1;
+            top: 50px;
+            left: 0;
+            background-color:#02343F;
+            padding-top: 0px;
+            overflow-y: visible;
+
+        }
+
+        .sidemenu li {
+            margin:10px;
+
+        }
+
+        a {
+            color: rgba(255,255,255,.5) !important;
+            font-size: 15px;
+        }
+
+        .wrap_content {
+            margin-top: 70px;
+            margin-left: 210px;
+            margin-right: 10px;
+        }
+
+        ul {
+            list-style:none;
+            list-style-position: outside;
+        }
+
+        body {
+            margin: 0px;
+            background-color: #F0EDCC;
+        }
+
+    </style>
+</head>
+<body>
+    {% include "index/home.html" %}
+
+    <div class="sidemenu bg-dark navbar-dark">
+        <ul>
+            <li><a href="http://127.0.0.1:8000/category/001001001">가정 살림</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001011">건강 취미</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001025">경제 경영</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001004">국어 외국어 사전</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001014">대학교재</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001022">사회 정치</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001046">소설/시/희곡</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001015">수험서 자격증</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001016">어린이</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001047">에세이</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001009">여행</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001010">역사</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001007">예술</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001027">유아</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001019">인문</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001020">인물</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001026">자기계발</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001002">자연과학</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001024">잡지</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001021">종교</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001005">청소년</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001003">IT 모바일</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001044">초등참고서</a></li>
+            <li><a href="http://127.0.0.1:8000/category/001001013">중고등참고서</a></li>
+        </ul>
+    </div>
+
+    <div class="wrap_content">
+        <div id="content" name="content" class="container">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div>
+
+</body>
+</html>

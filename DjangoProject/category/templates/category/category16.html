@@ -1,0 +1,117 @@
+{% extends 'category/base.html' %}
+
+{% block title %}Index page{% endblock %}
+
+{% block content %}
+<style>
+    .card {
+        border: 0;
+    }
+    .py-3 {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    .h-100 {
+        height: 100% !important;
+        width: 75vw !important;
+    }
+    .card {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 2px solid rgba(0,0,0,0.125);
+        border-radius: .625rem;
+    }
+    .row {
+        --bs-gutter-x: 2rem;
+        --bs-gutter-y: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-top: calc(var(--bs-gutter-y) * -1);
+        margin-right: calc(var(--bs-gutter-x) / -2);
+        margin-left: calc(var(--bs-gutter-x) / -2);
+    }
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: relative;
+    }
+    body {
+        margin: 0;
+        font-family: "Lato",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #4B5D68;
+        background-color: #fff;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    :root {
+        --bs-blue: #5F37EF;
+        --bs-indigo: #727cf5;
+        --bs-purple: #9C69E2;
+        --bs-pink: #F063B8;
+        --bs-red: #EF4358;
+        --bs-orange: #F56538;
+        --bs-yellow: #FFBA49;
+        --bs-green: #68C9BA;
+        --bs-teal: #299EF3;
+        --bs-cyan: #38B0F5;
+        --bs-white: #fff;
+        --bs-gray: #94A2B3;
+        --bs-gray-dark: #4B5D68;
+        --bs-primary: #5F37EF;
+        --bs-secondary: #299EF3;
+        --bs-success: #68C9BA;
+        --bs-info: #9C69E2;
+        --bs-warning: #FFBA49;
+        --bs-danger: #F063B8;
+        --bs-light: #f9fafd;
+        --bs-dark: #0b1727;
+        --bs-font-sans-serif: "Lato", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        --bs-font-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --bs-gradient: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+    }
+</style>
+<body>
+ {% for character in character.all%}
+    <div class="col-md-4 mb-3 mb-md-0">
+        <div class="card h-100 py-3">
+          <div class="card-body my-2">
+            <div class="d-flex align-items-center">
+              <div class="flex-1 align-items-center">
+                <h2 class="mb-0 fs--1 text-1000 fw-medium">{{character.name}}</h2>
+                <p class="fs--2 fw-normal text-info mb-0">{{character.author}}</p><br/>
+              </div>
+            </div>
+            <p class="card-text ps-7 ps-md-0 ps-xl-7 pt-md-4 pt-lg-3 pt-xl-0">{{character.description}}</p><br/>
+          </div>
+        </div>
+    </div>
+{%endfor%}
+</body>
+
+<!--<h2>인물</h2>
+{% for character in character.all%}
+<h1>{{character.name}}</h1>
+<p>{{character.author}}</p>
+<p>{{character.description}}</p>
+<br>
+{%endfor%}-->
+
+
+
+{% endblock  %}
